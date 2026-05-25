@@ -174,6 +174,3 @@ python generate.py
 
 ---
 
-# License
-
-This project was developed for academic and educational purposes.
