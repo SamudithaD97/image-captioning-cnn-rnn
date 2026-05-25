@@ -1,24 +1,20 @@
-Image Captioning Project (CNN + RNN with Attention)
+# Image Captioning using CNN + RNN with Attention
 
-Author: Samuditha Wijayasundara
-Course: CSCI-P-558 Deep Learning
+This project implements an image captioning system that generates textual descriptions for images using deep learning.
 
----
+The architecture combines:
 
-1. Project Overview
+- CNN encoder for image feature extraction
+- LSTM decoder for caption generation
+- Attention mechanism for improved caption quality
 
----
-
-This project implements an image captioning system that generates textual descriptions for images using deep learning. The model combines a Convolutional Neural Network (CNN) encoder with a Recurrent Neural Network (RNN) decoder.
-
-The encoder extracts visual features from images, while the decoder generates captions word-by-word. An attention mechanism is incorporated to improve performance by allowing the model to focus on relevant parts of the image during caption generation.
+The model is trained on the Flickr8k dataset using PyTorch.
 
 ---
 
-2. Project Structure
+# Project Structure
 
----
-
+```text
 project/
 │
 ├── data/
@@ -40,104 +36,144 @@ project/
 ├── train.py
 ├── generate.py
 ├── requirements.txt
-└── README.txt
+└── README.md
+```
 
 ---
 
-3. Requirements
+# Features
+
+- CNN + RNN image captioning pipeline
+- Attention-based caption generation
+- Pretrained ResNet-50 encoder
+- BLEU score evaluation
+- Dynamic dataset filtering
+- Portable training and inference scripts
 
 ---
 
-Install required packages:
+# Requirements
 
+Install required packages using:
+
+```bash
 pip install -r requirements.txt
+```
 
-OR manually:
+Or install manually:
 
+```bash
 pip install torch torchvision pandas pillow nltk tqdm
+```
 
-Also run (once):
+Download NLTK tokenizer once:
 
+```python
 import nltk
 nltk.download('punkt')
+```
 
 ---
 
-4. Dataset Setup
+# Dataset Setup
+
+Download the Flickr8k dataset and organize files as follows:
+
+```text
+data/
+├── Flickr8k_Dataset/
+└── Flickr8k_text/
+```
+
+Required folder names:
+
+- `Flickr8k_Dataset`
+- `Flickr8k_text`
 
 ---
 
-Download Flickr8k dataset and place files as:
+# Training the Model
 
-data/Flickr8k_Dataset/        (images)
-data/Flickr8k_text/           (captions)
+Run the training script:
 
-Ensure folder names are exactly:
-
-* Flickr8k_Dataset
-* Flickr8k_text
-
----
-
-5. How to Run
-
----
-
-## Step 1: Train the model
-
+```bash
 python train.py
+```
 
-This will:
+Training process includes:
 
-* Load dataset
-* Train CNN + RNN model
-* Print loss and BLEU score
-* Save trained model as: model.pth
+- Dataset loading
+- CNN + RNN training
+- Loss calculation
+- BLEU score evaluation
+- Model checkpoint saving
 
-## Step 2: Generate captions
+Trained model is saved as:
 
+```text
+model.pth
+```
+
+---
+
+# Generating Captions
+
+Generate captions for images using:
+
+```bash
 python generate.py
+```
 
 ---
 
-6. Model Details
+# Model Architecture
+
+| Component | Model |
+|---|---|
+| Encoder | ResNet-50 (Pretrained) |
+| Decoder | LSTM |
+| Attention | Bahdanau-style Attention |
+| Loss Function | CrossEntropyLoss |
+| Optimizer | Adam |
 
 ---
 
-* Encoder: ResNet-50 (pretrained)
-* Decoder: LSTM
-* Attention: Yes
-* Loss: CrossEntropyLoss
-* Optimizer: Adam
+# Results
+
+- Training loss reduced from approximately `8.0` to `2.1`
+- Model generates semantically meaningful captions
+- Attention mechanism improves caption relevance
+- BLEU scores improve with smoothing techniques
 
 ---
 
-7. Results
+# Known Limitations
+
+- Some captions may be generic
+- Fine-grained object recognition is limited
+- BLEU score may not fully represent semantic quality
 
 ---
 
-* Training loss decreased from ~8.0 to ~2.1
-* Model generates semantically meaningful captions
-* BLEU score is low due to strict evaluation but improves with smoothing
+# Notes
+
+- Missing images are automatically filtered
+- Code supports both local and server execution
+- File paths are dynamically handled for portability
 
 ---
 
-8. Known Limitations
+# Technologies Used
+
+- Python
+- PyTorch
+- Torchvision
+- NLTK
+- Pandas
+- Pillow
 
 ---
 
-* Generates generic captions in some cases
-* Limited fine-grained detail recognition
-* BLEU score may not reflect semantic correctness
+# License
 
----
-
-9. Notes
-
----
-
-* Dataset filtering is applied to remove missing images
-* Code is designed to run on both local machine and server
-* Paths are dynamically handled for portability
-
----
+This project was developed for academic purposes.
