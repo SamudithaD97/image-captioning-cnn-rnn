@@ -1,14 +1,14 @@
 # Image Captioning using CNN + RNN with Attention
 
-This project implements an image captioning system that generates textual descriptions for images using deep learning.
+This project implements an **Image Captioning System** that automatically generates textual descriptions for images using deep learning techniques.
 
 The architecture combines:
 
-- CNN encoder for image feature extraction
-- LSTM decoder for caption generation
-- Attention mechanism for improved caption quality
+- A **CNN encoder** for image feature extraction
+- An **LSTM decoder** for caption generation
+- An **Attention mechanism** to improve caption quality and relevance
 
-The model is trained on the Flickr8k dataset using PyTorch.
+The model is trained on the **Flickr8k dataset** using **PyTorch**.
 
 ---
 
@@ -43,7 +43,7 @@ project/
 
 # Features
 
-- CNN + RNN image captioning pipeline
+- End-to-end CNN + RNN image captioning pipeline
 - Attention-based caption generation
 - Pretrained ResNet-50 encoder
 - BLEU score evaluation
@@ -54,19 +54,19 @@ project/
 
 # Requirements
 
-Install required packages using:
+Install the required packages using:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Or install manually:
+Or install them manually:
 
 ```bash
 pip install torch torchvision pandas pillow nltk tqdm
 ```
 
-Download NLTK tokenizer once:
+Download the NLTK tokenizer once before training:
 
 ```python
 import nltk
@@ -77,7 +77,7 @@ nltk.download('punkt')
 
 # Dataset Setup
 
-Download the Flickr8k dataset and organize files as follows:
+Download the **Flickr8k dataset** and organize the files as follows:
 
 ```text
 data/
@@ -100,15 +100,15 @@ Run the training script:
 python train.py
 ```
 
-Training process includes:
+The training process includes:
 
-- Dataset loading
-- CNN + RNN training
+- Dataset loading and preprocessing
+- CNN + RNN model training
 - Loss calculation
 - BLEU score evaluation
 - Model checkpoint saving
 
-Trained model is saved as:
+The trained model will be saved as:
 
 ```text
 model.pth
@@ -132,7 +132,7 @@ python generate.py
 |---|---|
 | Encoder | ResNet-50 (Pretrained) |
 | Decoder | LSTM |
-| Attention | Bahdanau-style Attention |
+| Attention | Bahdanau Attention |
 | Loss Function | CrossEntropyLoss |
 | Optimizer | Adam |
 
@@ -140,25 +140,25 @@ python generate.py
 
 # Results
 
-- Training loss reduced from approximately `8.0` to `2.1`
-- Model generates semantically meaningful captions
-- Attention mechanism improves caption relevance
+- Training loss decreased from approximately **8.0** to **2.1**
+- The model generates semantically meaningful captions
+- The attention mechanism improves caption relevance
 - BLEU scores improve with smoothing techniques
 
 ---
 
 # Known Limitations
 
-- Some captions may be generic
-- Fine-grained object recognition is limited
-- BLEU score may not fully represent semantic quality
+- Some generated captions may still be generic
+- Fine-grained object recognition remains limited
+- BLEU score may not fully capture semantic quality
 
 ---
 
 # Notes
 
-- Missing images are automatically filtered
-- Code supports both local and server execution
+- Missing images are automatically filtered during preprocessing
+- The code supports both local and server-based execution
 - File paths are dynamically handled for portability
 
 ---
@@ -172,4 +172,8 @@ python generate.py
 - Pandas
 - Pillow
 
+---
 
+# License
+
+This project was developed for academic and educational purposes.
